@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app light>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -28,6 +28,8 @@
       :clipped-left="clipped"
       fixed
       app
+      color='primary'
+      dark
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn
@@ -57,7 +59,7 @@
         <v-icon>mdi-menu</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-main>
+    <v-main class='app'>
       <v-container>
         <nuxt />
       </v-container>
@@ -82,6 +84,8 @@
     <v-footer
       :absolute="!fixed"
       app
+      color='primary'
+      dark
     >
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
@@ -97,14 +101,29 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          icon: 'mdi-home',
+          title: 'Dashboard',
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: 'mdi-event',
+          title: 'Events',
+          to: '/test'
+        },
+        {
+          icon: 'mdi-description',
+          title: 'Docs',
+          to: '/test'
+        },
+        {
+          icon: 'mdi-today',
+          title: 'Tutorials',
+          to: '/test'
+        },
+        {
+          icon: 'mdi-event',
+          title: 'Matchmaking',
+          to: '/test'
         }
       ],
       miniVariant: false,
@@ -115,3 +134,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.app {
+  background-color: #c4e3cb;
+}
+</style>

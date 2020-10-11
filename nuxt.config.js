@@ -52,7 +52,8 @@ export default {
     customVariables: ['~/assets/variables.scss'],
     theme: {
       themes: {
-        light: customTheme
+        light: customTheme,
+        dark: customTheme
       }
     }
   },

@@ -1,5 +1,5 @@
 <template>
-  <v-app light>
+  <base-layout>
     <v-app-bar app fixed color="primary" dark flat>
       <v-toolbar-title v-text="title" />
       <v-spacer />
@@ -20,19 +20,17 @@
     <v-main class="app">
       <nuxt />
     </v-main>
-
-    <v-footer app color="primary" dark>
-      <span>this is our footer</span>
-    </v-footer>
-  </v-app>
+  </base-layout>
 </template>
 
 <script>
-function foobar() {
-  return 1;
-}
+import BaseLayout from "~/layouts/base.vue";
 
 export default {
+  components: {
+    BaseLayout
+  },
+
   data() {
     return {
       title: "Team Environment",

@@ -18,7 +18,7 @@
       </v-row>
       <v-row>
         <v-col align="center" justify="center">
-          <v-btn color="primary" x-large>
+          <v-btn color="primary" x-large @click="goTo('#our-services')">
             Our services
           </v-btn>
           <v-btn color="primary" x-large>
@@ -34,65 +34,91 @@
         <v-fade-transition mode="out-in">
           <v-row>
             <v-col cols="6">
-              <InfoCard title="Event organisation" imageurl="https://picsum.photos/350/165?random">  
-                Organize your event and manage all the stuff that you need in one platform
+              <InfoCard
+                title="Event organisation"
+                imageurl="https://picsum.photos/350/165?random"
+              >
+                Organize your event and manage all the stuff that you need in
+                one platform
               </InfoCard>
             </v-col>
 
             <v-col cols="6">
-              <InfoCard title="Manage documents" imageurl="https://picsum.photos/350/165?random">  
-                Find all the documents needed to organize your event ready to download
+              <InfoCard
+                title="Manage documents"
+                imageurl="https://picsum.photos/350/165?random"
+              >
+                Find all the documents needed to organize your event ready to
+                download
               </InfoCard>
             </v-col>
 
             <v-col cols="6">
-              <InfoCard title="Matchmaking" imageurl="https://picsum.photos/350/165?random">  
-                Are you new in organizing a social event? Find help for your event by an expert activist
-                Are you an expert? Give help to organize an impactive event for the environment
+              <InfoCard
+                title="Matchmaking"
+                imageurl="https://picsum.photos/350/165?random"
+              >
+                Are you new in organizing a social event? Find help for your
+                event by an expert activist Are you an expert? Give help to
+                organize an impactive event for the environment
               </InfoCard>
             </v-col>
 
             <v-col cols="6">
-              <InfoCard title="Tutorials" imageurl="https://picsum.photos/350/165?random">  
-                Follow the process from expert activist or watch the videos to improve your skill for your events
+              <InfoCard
+                title="Tutorials"
+                imageurl="https://picsum.photos/350/165?random"
+              >
+                Follow the process from expert activist or watch the videos to
+                improve your skill for your events
               </InfoCard>
             </v-col>
-          
           </v-row>
         </v-fade-transition>
       </v-container>
-      <h1 class="display-1 mb-4 mt-4 text-center">And that's what our users organize</h1>
-      
+      <h1 id="our-services" class="display-1 mb-4 mt-4 text-center">
+        And that's what our users organize
+      </h1>
+
       <v-row>
+        <v-col cols="4">
+          <EventCard title="Clean day in Orsay">
+            Let's make our parks clean again!
+          </EventCard>
+        </v-col>
 
-            <v-col cols="4">
-              <EventCard title="Clean day in Orsay">
-                Let's make our parks clean again!
-              </EventCard>
-            </v-col>
+        <v-col cols="4">
+          <EventCard title="Recycling: tips and tricks">
+            Series of workshops on how to recycle your trash properly
+          </EventCard>
+        </v-col>
 
-            <v-col cols="4">
-              <EventCard title="Recycling: tips and tricks">
-                Series of workshops on how to recycle your trash properly
-              </EventCard>
-            </v-col>
-
-            <v-col cols="4">
-              <EventCard title="Earth Day!">
-                There is no PLANet B!
-              </EventCard>
-            </v-col>
-          
-          </v-row>
-    
+        <v-col cols="4">
+          <EventCard title="Earth Day!">
+            There is no PLANet B!
+          </EventCard>
+        </v-col>
+      </v-row>
     </main>
     <!--  -->
   </div>
 </template>
 
 <script>
+import goTo from "vuetify/es5/services/goto";
+
 export default {
-  layout: "landing"
+  layout: "landing",
+
+  methods: {
+    goTo(target) {
+      goTo(target, {
+        duration: 600,
+        offset: -3,
+        easing: "easeInOutCubic"
+      });
+    }
+  }
 };
 </script>
 

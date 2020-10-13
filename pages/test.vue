@@ -30,6 +30,7 @@
 import TextBox from "~/components/TextBox.vue";
 
 export default {
+  layout: "app",
   components: {
     TextBox
   }

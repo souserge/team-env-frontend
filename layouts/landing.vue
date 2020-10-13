@@ -46,6 +46,10 @@ export default {
         {
           title: "Contact",
           to: "/test"
+        },
+        {
+          title: "Log in",
+          to: "/dashboard"
         }
       ]
     };

@@ -61,6 +61,30 @@
           </v-row>
         </v-fade-transition>
       </v-container>
+      <h1 class="display-1 mb-4 mt-4 text-center">And that's what our users organize</h1>
+      
+      <v-row>
+
+            <v-col cols="4">
+              <EventCard title="Clean day in Orsay">
+                Let's make our parks clean again!
+              </EventCard>
+            </v-col>
+
+            <v-col cols="4">
+              <EventCard title="Recycling: tips and tricks">
+                Series of workshops on how to recycle your trash properly
+              </EventCard>
+            </v-col>
+
+            <v-col cols="4">
+              <EventCard title="Earth Day!">
+                There is no PLANet B!
+              </EventCard>
+            </v-col>
+          
+          </v-row>
+    
     </main>
     <!--  -->
   </div>

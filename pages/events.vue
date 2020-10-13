@@ -7,7 +7,13 @@
   margin-right:5px;
 
 }
+.v-input__slot  fieldset{
+padding-left:8px;
 
+}
+.v-text-field__slot label {
+transform-origin: top left;
+}
 </style>
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
@@ -105,7 +111,7 @@
       </v-row>
 
       <v-row  align="center" justify="center">
-      <v-col  align="center" cols="3">
+      <v-col  align="center" cols="12">
       <v-btn
   elevation="2"
   outlined

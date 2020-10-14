@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <div class="d-flex flex-no-wrap justify-space-between" style="height: 100%">
-      <v-img :src="imageurl" width="35%" height="100%"> ></v-img>
+      <v-img :src="imageurl" width="35%" height="100%" />
       <div>
         <v-card-title class="title">
           {{ title }}

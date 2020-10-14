@@ -1,5 +1,7 @@
 # team-env-frontend
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/37ec31eb-3fad-4426-b1cf-5c11b704af9d/deploy-status)](https://app.netlify.com/sites/team-environment/deploys)
+
 ## Color palette
 
 [See here](https://colorhunt.co/palette/120121)

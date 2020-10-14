@@ -62,7 +62,13 @@
 </template>
 
 <script>
+import BaseLayout from "~/layouts/base.vue";
+
 export default {
+  components: {
+    BaseLayout
+  },
+
   data() {
     return {
       clipped: false,
@@ -103,9 +109,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.app {
-  background-color: #c4e3cb;
-}
-</style>

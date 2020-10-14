@@ -66,7 +66,7 @@
           v-for="(item, i) in events"
           :key="i"
         >
-          <EventCard class="flex d-flex flex-column" :title="item.title">{{
+          <EventCard class="flex d-flex flex-column" :title="item.title" :imageurl="item.imageurl">{{
             item.text
           }}</EventCard>
         </v-col>
@@ -115,17 +115,17 @@ export default {
       {
         title: "Clean day in Orsay",
         text: "Let's make our parks clean again!",
-        imageurl: "https://picsum.photos/350/165?random"
+        imageurl: "https://wilderness-society.org/wp-content/uploads/2019/03/Forest-Fire-Treuebrietzen-Brandenburg-22403.jpg"
       },
       {
         title: "Recycling: tips and tricks",
         text: "Series of workshops on how to recycle your trash properly",
-        imageurl: "https://picsum.photos/350/165?random"
+        imageurl: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcREJTXxQKwFakcLJqjbtgddD4XSDdrJXxDn0A&usqp=CAU"
       },
       {
         title: "Earth Day!",
         text: "There is no PLANet B!",
-        imageurl: "https://picsum.photos/350/165?random"
+        imageurl: "https://live.staticflickr.com/7824/47484255882_b77b08f9be_b.jpg"
       }
     ]
   }),

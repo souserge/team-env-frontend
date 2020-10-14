@@ -1,8 +1,10 @@
 <template>
   <v-app light>
     <slot></slot>
-    <v-footer color="primary" dark>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+    <v-footer color="primary justify-center" dark>
+      <span
+        >&copy; {{ new Date().getFullYear() }} - Paula & Serge & Francesco</span
+      >
     </v-footer>
   </v-app>
 </template>

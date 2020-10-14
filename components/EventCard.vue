@@ -1,7 +1,7 @@
 <template>
   <v-card class="mx-auto mt-10 mb-10" max-width="344">
     <v-img
-      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+      :src="imageurl"
       width="100%"
       height="200px"
     ></v-img>

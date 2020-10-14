@@ -8,10 +8,10 @@
 
     <v-row align="left" justify="center">
       <v-col class="text-left" cols="3">
-        <DatePicker v-model="startDate" label="Start Date" />
+        <AppDatePicker v-model="startDate" label="Start Date" />
       </v-col>
       <v-col class="text-left" cols="3">
-        <DatePicker v-model="endDate" label="End Date" />
+        <AppDatePicker v-model="endDate" label="End Date" />
       </v-col>
 
       <v-col class="text-left" cols="3">

@@ -37,19 +37,19 @@ export default {
       navigation: [
         {
           title: "Home",
-          to: "/test"
+          to: "/"
         },
         {
           title: "About us",
-          to: "/test"
+          to: "/#about-us"
         },
         {
           title: "Contact",
-          to: "/test"
+          to: "/#contact"
         },
         {
           title: "Log in",
-          to: "/dashboard"
+          to: "/app/dashboard"
         }
       ]
     };

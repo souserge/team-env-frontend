@@ -16,11 +16,13 @@
           </h2>
         </v-col>
       </v-row>
-      <v-row>
-        <v-col align="center" justify="center">
+      <v-row justify="center">
+        <v-col align="right" cols="6">
           <v-btn color="primary" x-large @click="goTo('#our-services')">
             Our services
           </v-btn>
+        </v-col>
+        <v-col align="left" cols="6">
           <v-btn color="primary" x-large>
             Start now!
           </v-btn>
@@ -33,44 +35,19 @@
       <v-container class="fill-height" fluid style="min-height: 434px">
         <v-fade-transition mode="out-in">
           <v-row>
-            <v-col cols="6">
+            <v-col
+              class="d-flex flex-column"
+              cols="12"
+              md="6"
+              v-for="(item, i) in infos"
+              :key="i"
+            >
               <InfoCard
-                title="Event organisation"
-                imageurl="https://picsum.photos/350/165?random"
+                class="flex d-flex flex-column"
+                :title="item.title"
+                :imageurl="item.imageurl"
               >
-                Organize your event and manage all the stuff that you need in
-                one platform
-              </InfoCard>
-            </v-col>
-
-            <v-col cols="6">
-              <InfoCard
-                title="Manage documents"
-                imageurl="https://picsum.photos/350/165?random"
-              >
-                Find all the documents needed to organize your event ready to
-                download
-              </InfoCard>
-            </v-col>
-
-            <v-col cols="6">
-              <InfoCard
-                title="Matchmaking"
-                imageurl="https://picsum.photos/350/165?random"
-              >
-                Are you new in organizing a social event? Find help for your
-                event by an expert activist Are you an expert? Give help to
-                organize an impactive event for the environment
-              </InfoCard>
-            </v-col>
-
-            <v-col cols="6">
-              <InfoCard
-                title="Tutorials"
-                imageurl="https://picsum.photos/350/165?random"
-              >
-                Follow the process from expert activist or watch the videos to
-                improve your skill for your events
+                {{ item.text }}
               </InfoCard>
             </v-col>
           </v-row>
@@ -81,22 +58,17 @@
       </h1>
 
       <v-row>
-        <v-col cols="4">
-          <EventCard title="Clean day in Orsay">
-            Let's make our parks clean again!
-          </EventCard>
-        </v-col>
-
-        <v-col cols="4">
-          <EventCard title="Recycling: tips and tricks">
-            Series of workshops on how to recycle your trash properly
-          </EventCard>
-        </v-col>
-
-        <v-col cols="4">
-          <EventCard title="Earth Day!">
-            There is no PLANet B!
-          </EventCard>
+        <v-col
+          class="d-flex flex-column"
+          cols="12"
+          md="6"
+          lg="4"
+          v-for="(item, i) in events"
+          :key="i"
+        >
+          <EventCard class="flex d-flex flex-column" :title="item.title">{{
+            item.text
+          }}</EventCard>
         </v-col>
       </v-row>
     </main>
@@ -109,6 +81,54 @@ import goTo from "vuetify/es5/services/goto";
 
 export default {
   layout: "landing",
+
+  data: () => ({
+    infos: [
+      {
+        title: "Event organisation",
+        text:
+          "Organize your event and manage all the stuff that you need in one platform",
+        imageurl: "https://picsum.photos/350/165?random"
+      },
+
+      {
+        title: "Manage documents",
+        text:
+          "Find all the documents needed to organize your event ready to download",
+        imageurl: "https://picsum.photos/350/165?random"
+      },
+      {
+        title: "Matchmaking",
+        text:
+          "Are you new in organizing a social event? Find help for your event by an expert activist Are you an expert? Give help to organize an impactive event for the environment",
+        imageurl: "https://picsum.photos/350/165?random"
+      },
+      {
+        title: "Tutorials",
+        text:
+          "Follow the process from expert activist or watch the videos to improve your skill for your events",
+        imageurl: "https://picsum.photos/350/165?random"
+      }
+    ],
+
+    events: [
+      {
+        title: "Clean day in Orsay",
+        text: "Let's make our parks clean again!",
+        imageurl: "https://picsum.photos/350/165?random"
+      },
+      {
+        title: "Recycling: tips and tricks",
+        text: "Series of workshops on how to recycle your trash properly",
+        imageurl: "https://picsum.photos/350/165?random"
+      },
+      {
+        title: "Earth Day!",
+        text: "There is no PLANet B!",
+        imageurl: "https://picsum.photos/350/165?random"
+      }
+    ]
+  }),
 
   methods: {
     goTo(target) {

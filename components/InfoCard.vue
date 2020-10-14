@@ -1,14 +1,15 @@
 <template>
-  <v-card >
-    <div class="d-flex flex-no-wrap justify-space-between">
+  <v-card>
+    <div class="d-flex flex-no-wrap justify-space-between" style="height: 100%">
       <v-img
         :src="imageurl"
-        width="250"
+        width="35%"
+        height="100%"
         class="grey darken-4"
       ></v-img>
       <div>
         <v-card-title class="title">
-            {{ title }}
+          {{ title }}
         </v-card-title>
         <v-card-text>
           <slot></slot>

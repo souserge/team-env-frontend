@@ -1,11 +1,8 @@
 <template>
-
-  <v-card
-    class="mx-auto mt-10 mb-10"
-    max-width="344"
-  >
+  <v-card class="mx-auto mt-10 mb-10" max-width="344">
     <v-img
       src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+      width="100%"
       height="200px"
     ></v-img>
 
@@ -18,32 +15,24 @@
     </v-card-subtitle>
 
     <v-card-actions>
-      <v-btn
-        color="orange lighten-2"
-        text
-      >
+      <v-btn color="orange lighten-2" text>
         See more
       </v-btn>
-
     </v-card-actions>
   </v-card>
-
 </template>
 
 <script>
 export default {
-    props: {
-        title: {
-        type: String
-        },
-        imageurl: {
-        type: String
-        }
+  props: {
+    title: {
+      type: String
+    },
+    imageurl: {
+      type: String
+    }
   }
-
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

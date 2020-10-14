@@ -3,10 +3,31 @@
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
+      :clipped="false"
       app
+      class="navbar"
     >
+      <v-list>
+        <v-list-item link class="px-2">
+          <v-list-item-avatar>
+            <v-img
+              src="https://randomuser.me/api/portraits/women/85.jpg"
+            ></v-img>
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              Hola, Susanna!
+            </v-list-item-title>
+            <v-list-item-subtitle
+              >view my profile<v-icon small
+                >mdi-chevron-right</v-icon
+              ></v-list-item-subtitle
+            >
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+
+      <v-divider></v-divider>
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
@@ -24,22 +45,36 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app color="primary" dark flat>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
+    <v-app-bar :clipped-left="clipped" fixed app color="primary" flat>
+      <v-btn icon @click.stop="miniVariant = !miniVariant" color="white">
         <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
       </v-btn>
-      <v-btn icon @click.stop="clipped = !clipped">
-        <v-icon>mdi-application</v-icon>
+      <v-btn color="primary" depressed>
+        Choose project <v-icon>mdi-chevron-down</v-icon>
       </v-btn>
-      <v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      <v-text-field
+        class="search-field"
+        solo
+        dense
+        single-line
+        label="Search"
+        prepend-inner-icon="mdi-magnify"
+        clearable
+      ></v-text-field>
+      <v-spacer />
+      <v-toolbar-items flat>
+        <v-btn
+          v-for="(item, i) in navigation"
+          :key="i"
+          :to="item.to"
+          :title="item.title"
+          depressed
+          color="primary"
+        >
+          {{ item.title }}
+        </v-btn>
+      </v-toolbar-items>
     </v-app-bar>
     <v-main class="app">
       <v-container>
@@ -59,38 +94,52 @@ export default {
 
   data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
+      drawer: true,
       items: [
         {
           icon: "mdi-home",
           title: "Dashboard",
-          to: "/"
+          to: "/app"
         },
         {
-          icon: "mdi-event",
+          icon: "mdi-calendar-check",
           title: "Events",
-          to: "/test"
+          to: "/app/events"
         },
         {
-          icon: "mdi-description",
+          icon: "mdi-file-document-multiple",
           title: "Docs",
-          to: "/test"
+          to: "/app/docs"
         },
         {
-          icon: "mdi-today",
+          icon: "mdi-school",
           title: "Tutorials",
-          to: "/test"
+          to: "/app/tutorials"
         },
         {
-          icon: "mdi-event",
+          icon: "mdi-account-group",
           title: "Matchmaking",
-          to: "/test"
+          to: "/app/matchmaking"
         }
       ],
-      miniVariant: false
+      miniVariant: false,
+      navigation: [
+        {
+          title: "About us",
+          to: null
+        },
+        {
+          title: "Sign out",
+          to: "/"
+        }
+      ]
     };
   }
 };
 </script>
+
+<style>
+.search-field .v-text-field__details {
+  display: none;
+}
+</style>

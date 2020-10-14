@@ -1,7 +1,6 @@
 <template>
   <div>
     <v-parallax
-      dark
       :src="require('~/assets/images/landing-bg.jpg')"
       class="landing-image"
     >
@@ -23,14 +22,16 @@
           </v-btn>
         </v-col>
         <v-col align="left" cols="6">
-          <v-btn color="primary" x-large>
+          <v-btn color="primary" to="/app" x-large>
             Start now!
           </v-btn>
         </v-col>
       </v-row>
     </v-parallax>
     <main>
-      <h1 class="display-1 mb-4 mt-4 text-center">What we provide</h1>
+      <h1 id="our-services" class="display-1 mb-4 mt-4 text-center">
+        What we provide
+      </h1>
 
       <v-container class="fill-height" fluid style="min-height: 434px">
         <v-fade-transition mode="out-in">
@@ -53,7 +54,7 @@
           </v-row>
         </v-fade-transition>
       </v-container>
-      <h1 id="our-services" class="display-1 mb-4 mt-4 text-center">
+      <h1 id="past-events" class="display-1 mb-4 mt-4 text-center">
         And that's what our users organize
       </h1>
 
@@ -91,26 +92,30 @@ export default {
         title: "Event organisation",
         text:
           "Organize your event and manage all the stuff that you need in one platform",
-        imageurl: "https://picsum.photos/350/165?random"
+        imageurl:
+          "https://snappygoat.com/b/b0978475a04612c5026aad3471aa65feedd17f01"
       },
 
       {
         title: "Manage documents",
         text:
           "Find all the documents needed to organize your event ready to download",
-        imageurl: "https://picsum.photos/350/165?random"
+        imageurl:
+          "https://cdn.pixabay.com/photo/2016/03/31/20/04/cluttered-1295494__340.png"
       },
       {
         title: "Matchmaking",
         text:
           "Are you new in organizing a social event? Find help for your event by an expert activist Are you an expert? Give help to organize an impactive event for the environment",
-        imageurl: "https://picsum.photos/350/165?random"
+        imageurl:
+          "https://cdn.pixabay.com/photo/2020/02/27/04/46/alien-4883391__340.png"
       },
       {
         title: "Tutorials",
         text:
           "Follow the process from expert activist or watch the videos to improve your skill for your events",
-        imageurl: "https://picsum.photos/350/165?random"
+        imageurl:
+          "https://cdn.pixabay.com/photo/2016/09/27/05/35/letter-1697604_1280.png"
       }
     ],
 
@@ -140,7 +145,7 @@ export default {
     goTo(target) {
       goTo(target, {
         duration: 600,
-        offset: -3,
+        offset: 80,
         easing: "easeInOutCubic"
       });
     }

@@ -1,6 +1,6 @@
 <template>
   <base-layout>
-    <v-app-bar app fixed color="primary" dark flat>
+    <v-app-bar app fixed color="primary" class="navbar" flat>
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <v-toolbar-items flat>
@@ -49,7 +49,7 @@ export default {
         },
         {
           title: "Log in",
-          to: "/app/dashboard"
+          to: "/app"
         }
       ]
     };

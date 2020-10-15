@@ -1,5 +1,10 @@
 <template>
-  <div>
+  <div v-anime="{ translateX: [
+    { value: -250, duration:0, delay: 0 },
+    { value: 0, duration: 1000, delay: 500 }
+  ],
+  easing: 'easeInCubic'
+}">
     <v-row align="center" justify="center">
       <v-col class="text-center" cols="12">
         <h1 class="display-1 mb-4" v-text="title"></h1>
@@ -73,6 +78,14 @@
               Edit
             </v-btn>
           </template>
+           <template v-slot:[`item.done`]="{item}">
+              <v-icon v-if="item.done">
+                mdi-check-outline
+              </v-icon>
+               <v-icon v-else>
+                mdi-close-outline
+              </v-icon>
+          </template>
         </v-data-table>
       </v-col>
     </v-row>
@@ -110,23 +123,23 @@ export default {
       events: [
         {
           name: "Legal meeting",
-          date: "4/10/2020",
+          date: "24/10/2020",
           time: "18:00",
           privacy: "Private",
           co_organizers: [
             {
               src:
-                "https://womenrockproject.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-27-at-10.19.29-AM.png",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTEtD-9q9Lu2ueYBwGALDni9mUZDY2PC-otEw&usqp=CAU",
               name: "Francesco"
             },
             {
               src:
-                "https://womenrockproject.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-27-at-10.19.29-AM.png",
-              name: "Federico"
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcZ66nh8KOULNtAGKMU0Q_j2M6mgSi5TZnMg&usqp=CAU",
+              name: "Serge"
             }
           ],
           edit: "",
-          done: "si"
+          done: false
         },
 
         {
@@ -137,17 +150,17 @@ export default {
           co_organizers: [
             {
               src:
-                "https://womenrockproject.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-27-at-10.19.29-AM.png",
+                "https://cineuropa.org/imgCache/2020/09/06/1599392796214_0620x0435_27x0x1001x702_1599392845653.jpg",
               name: "John"
             },
             {
               src:
                 "https://womenrockproject.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-27-at-10.19.29-AM.png",
-              name: "Pepi"
+              name: "Paulina"
             }
           ],
           edit: "",
-          done: "si"
+          done: true
         },
         {
           name: "Environmental Festival",
@@ -157,17 +170,17 @@ export default {
           co_organizers: [
             {
               src:
-                "https://womenrockproject.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-27-at-10.19.29-AM.png",
+                "https://cineuropa.org/imgCache/2020/09/06/1599392796214_0620x0435_27x0x1001x702_1599392845653.jpg",
               name: "John"
             },
             {
               src:
-                "https://womenrockproject.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-27-at-10.19.29-AM.png",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQj5c50-PiIoaYes9cwYkA6CNDDC21fUG7uEQ&usqp=CAU",
               name: "Ana"
             }
           ],
           edit: "",
-          done: "si"
+          done: true
         }
       ],
       select: "Public",

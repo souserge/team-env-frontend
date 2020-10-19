@@ -30,7 +30,7 @@
       <v-divider></v-divider>
       <v-list>
         <v-list-item
-          v-for="(item, i) in items"
+          v-for="(item, i) in contextedItems"
           :key="i"
           :to="item.to"
           router
@@ -49,13 +49,11 @@
       <v-btn icon @click.stop="miniVariant = !miniVariant" color="white">
         <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
       </v-btn>
-      <v-btn color="primary" depressed @click="openChooseProjectPopup">
-        Choose project <v-icon>mdi-chevron-down</v-icon>
-      </v-btn>
-
-      <div v-show="chooseProjectPopupOpened">
-        This is a popup
-      </div>
+      <app-project-select-dialog
+        :currentProject="currentProject"
+        :projects="projectsInfo"
+        @select="selectProject"
+      />
       <v-spacer />
       <v-text-field
         class="search-field"
@@ -89,6 +87,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import BaseLayout from "~/layouts/base.vue";
 
 export default {
@@ -137,13 +136,36 @@ export default {
           title: "Sign out",
           to: "/"
         }
+      ],
+
+      projects: [
+        {
+          name: "Clean day in Orsay"
+        }
       ]
     };
   },
 
+  computed: {
+    ...mapGetters(["projectsInfo", "projectSelected", "currentProject"]),
+
+    contextedItems() {
+      if (this.projectSelected) {
+        return this.items;
+      }
+
+      const allowedRoutes = new Set([
+        "/app",
+        "/app/matchmaking",
+        "/app/tutorials"
+      ]);
+      return this.items.filter(it => allowedRoutes.has(it.to));
+    }
+  },
+
   methods: {
-    openChooseProjectPopup() {
-      this.chooseProjectPopupOpened = true;
+    selectProject(projId) {
+      this.$store.commit("setCurrentProject", projId);
     }
   }
 };

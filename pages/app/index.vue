@@ -1,9 +1,9 @@
 <template>
-  <v-row class="mt-4">
+  <v-row v-if="projectSelected" class="mt-4">
     <v-col cols="12" md="4">
-      <h2 class="text-center mb-2">"{{ project.name }}" project</h2>
+      <h2 class="text-center mb-2">"{{ currentProject.name }}" project</h2>
 
-      <v-img class="mb-4" :src="project.bannerImg" />
+      <v-img class="mb-4" :src="currentProject.bannerImg" />
 
       <p class="mb-6">
         We meet every week on Saturday in Parc Nord Les Ulis and clean the trash
@@ -15,7 +15,7 @@
 
       <h3 class="text--primary">Co-organizers</h3>
       <v-list>
-        <template v-for="(item, index) in project.coorganizers">
+        <template v-for="(item, index) in currentProject.coorganizers">
           <v-list-item two-line :key="item.title">
             <v-list-item-avatar>
               <v-img :src="item.avatar"></v-img>
@@ -35,12 +35,12 @@
           </v-list-item>
 
           <v-divider
-            v-if="index < project.coorganizers.length - 1"
+            v-if="index < currentProject.coorganizers.length - 1"
             :key="index"
             :inset="true"
           ></v-divider>
         </template>
-        <v-list-item two-line ripple to="app/manage/organizers">
+        <v-list-item two-line ripple to="app/project/organizers">
           <v-list-item-title class="text-center"
             >manage co-organizers</v-list-item-title
           >
@@ -119,78 +119,43 @@
       </v-list>
     </v-col>
   </v-row>
+  <v-row v-else>
+    <v-col align="center" cols="12">
+      <h2 class="text-center">
+        Hi there! It seems you have no project selected
+      </h2>
+      <v-img
+        src="https://storage.needpix.com/rsynced_images/dance-1298175_1280.png"
+        max-width="400px"
+        class="mx-auto"
+      />
+      <p class="text-center mt-8">
+        Select an existing project using the navbar, create a new one, or browse
+        the Tutorials and Matchmaking without a project.
+      </p>
+      <v-btn class="mx-auto" color="primary" to="/app/project/create"
+        >Create a new project</v-btn
+      >
+    </v-col>
+  </v-row>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  data: () => ({
-    project: {
-      name: "Clean the district",
-      bannerImg:
-        "https://wilderness-society.org/wp-content/uploads/2019/03/Forest-Fire-Treuebrietzen-Brandenburg-22403.jpg",
-
-      coorganizers: [
-        {
-          avatar:
-            "https://womenrockproject.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-27-at-10.19.29-AM.png",
-          title: "Paulina",
-          subtitle: "Manages resources and crowdfunding, graphic designer",
-          admin: true
-        },
-        {
-          avatar:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTEtD-9q9Lu2ueYBwGALDni9mUZDY2PC-otEw&usqp=CAU",
-          title: "Francesco",
-          subtitle: "Manages social media, photographer",
-          admin: true
-        },
-        {
-          avatar:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcZ66nh8KOULNtAGKMU0Q_j2M6mgSi5TZnMg&usqp=CAU",
-          title: "Serge",
-          subtitle: "Volunteer",
-          admin: false
-        }
-      ],
-
-      events: [
-        {
-          name: "Org. meeting",
-          date: "2020-10-07 12:00:00"
-        },
-        {
-          name: "Cleaning day",
-          date: "2020-10-10 10:00:00"
-        },
-        {
-          name: "Reflection / media",
-          date: "2020-10-11 11:00:00"
-        }
-      ],
-
-      similarProjects: [
-        {
-          name: "Nettoyons Orsay",
-          author: "Toine Mannuel",
-          created: "7d ago"
-        },
-        {
-          name: "Recycling awareness",
-          author: "Antonio Jobim",
-          created: "2d ago"
-        }
-      ]
-    }
-  }),
+  data: () => ({}),
 
   computed: {
     upcomingEvents() {
-      return this.project.events.slice(0, 3);
+      return this.currentProject.events.slice(0, 3);
     },
 
     similarProjects() {
-      return this.project.similarProjects;
-    }
+      return this.currentProject.similarProjects;
+    },
+
+    ...mapGetters(["currentProject", "projectSelected"])
   },
 
   methods: {

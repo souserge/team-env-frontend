@@ -3,8 +3,8 @@
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
-      :clipped="false"
       app
+      permanent
       class="navbar"
     >
       <v-list>

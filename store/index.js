@@ -1,5 +1,5 @@
 export const state = () => ({
-  counter: 0
+  currentProject: {}
 })
 
 export const getters = {

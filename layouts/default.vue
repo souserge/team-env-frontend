@@ -3,8 +3,8 @@
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
-      :clipped="false"
       app
+      permanent
       class="navbar"
     >
       <v-list>
@@ -49,9 +49,13 @@
       <v-btn icon @click.stop="miniVariant = !miniVariant" color="white">
         <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
       </v-btn>
-      <v-btn color="primary" depressed>
+      <v-btn color="primary" depressed @click="openChooseProjectPopup">
         Choose project <v-icon>mdi-chevron-down</v-icon>
       </v-btn>
+
+      <div v-show="chooseProjectPopupOpened">
+        This is a popup
+      </div>
       <v-spacer />
       <v-text-field
         class="search-field"
@@ -94,6 +98,7 @@ export default {
 
   data() {
     return {
+      chooseProjectPopupOpened: false,
       drawer: true,
       items: [
         {
@@ -134,6 +139,12 @@ export default {
         }
       ]
     };
+  },
+
+  methods: {
+    openChooseProjectPopup() {
+      this.chooseProjectPopupOpened = true;
+    }
   }
 };
 </script>

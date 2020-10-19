@@ -40,13 +40,13 @@
      </v-col>
     </v-row>
     <v-row>
-      <v-btn color="primary" @click='show = adv' x-medium>
+      <v-btn color="primary" x-medium @click="openAdvancedSearch">
             Go to advanced search        
         </v-btn>
     </v-row>
   </v-container>
   <v-container fluid id="adv">
-  <MatchmakingAdvancedSearch>
+  <MatchmakingAdvancedSearch v-show="advancedSearchOpened">
   </MatchmakingAdvancedSearch>
   </v-container>
   </div>
@@ -56,9 +56,15 @@
 export default {
     data(){
     return {
+      advancedSearchOpened: false,
       items: ["Legal meeting", "Recycling Discussion", "Environmental festival"]
     }
-}
+  },
+  methods: {
+      openAdvancedSearch() {
+        this.advancedSearchOpened = true;
+      }
+    }
 }
 </script>
 

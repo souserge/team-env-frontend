@@ -50,7 +50,14 @@
 
     <v-col cols="12" md="4" class="mt-8">
       <h3>Social media</h3>
-      todo
+      <v-row>
+        <v-col cols="12" lg="6">
+          <app-social-stats type="facebook" />
+        </v-col>
+        <v-col cols="12" lg="6">
+          <app-social-stats type="instagram" />
+        </v-col>
+      </v-row>
       <h3>Organization steps</h3>
       todo
     </v-col>

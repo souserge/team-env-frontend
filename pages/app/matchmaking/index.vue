@@ -29,6 +29,10 @@
 
 <script>
 export default {
+  head: {
+    title: "Matchmaking"
+  },
+
   methods: {
     debugError(error) {
       console.log(error);

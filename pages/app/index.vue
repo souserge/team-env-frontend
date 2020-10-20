@@ -144,6 +144,10 @@
 import { mapGetters } from "vuex";
 
 export default {
+  head: {
+    title: "Dashboard"
+  },
+
   data: () => ({}),
 
   computed: {

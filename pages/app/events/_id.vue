@@ -238,6 +238,10 @@
 
 <script>
 export default {
+  head: {
+    title: "Event info"
+  },
+
   data() {
     return {
 

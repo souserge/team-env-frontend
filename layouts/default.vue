@@ -95,6 +95,10 @@ export default {
     BaseLayout
   },
 
+  head: {
+    title: "App"
+  },
+
   data() {
     return {
       chooseProjectPopupOpened: false,

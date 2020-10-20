@@ -31,6 +31,10 @@ export default {
     BaseLayout
   },
 
+  head: {
+    title: "Welcome!"
+  },
+
   data() {
     return {
       title: "Team Environment",

@@ -1,38 +1,31 @@
 <template>
-  <div v-anime="{ translateX: [
-    { value: -250, duration:0, delay: 0 },
-    { value: 0, duration: 1000, delay: 500 }
-  ],
-  easing: 'easeInCubic'
-}">
-    <v-row >
-
-    <v-col class="text-left" cols="4" >
-    <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
-
-
-    </v-col>
+  <div
+    v-anime="{
+      translateX: [
+        { value: -250, duration: 0, delay: 0 },
+        { value: 0, duration: 1000, delay: 500 }
+      ],
+      easing: 'easeInCubic'
+    }"
+  >
+    <v-row>
+      <v-col class="text-left" cols="4">
+        <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
+      </v-col>
       <v-col class="text-center" cols="4">
         <h1 class="display-1 mb-4" v-text="title"></h1>
       </v-col>
-
-
     </v-row>
 
     <v-row align="left" justify="center">
       <v-col class="text-left" cols="8">
-          <v-text-field
-            outlined          clearable
-
-            label="Event name"
-            type="text"
-
-          ></v-text-field>
-       </v-col>
-
-
-
-
+        <v-text-field
+          outlined
+          clearable
+          label="Event name"
+          type="text"
+        ></v-text-field>
+      </v-col>
 
       <v-col class="text-left" cols="4">
         <v-switch
@@ -41,42 +34,34 @@
           color="primary"
           label="Public Event"
           value="Public"
-          ></v-switch>
+        ></v-switch>
       </v-col>
     </v-row>
 
     <v-row>
-
-        <v-col class="text-left" cols="8">
-          <v-text-field
-            prepend-icon="mdi-map-marker"
-            outlined          clearable
-
-            label="Address"
-            type="text"
-
-          ></v-text-field>
-       </v-col>
-               <v-col class="text-left" cols="4">
-
- <v-file-input
-           v-model="files"
-           label="Upload useful materials"
-           multiple
-           outlined
+      <v-col class="text-left" cols="8">
+        <v-text-field
+          prepend-icon="mdi-map-marker"
+          outlined
+          clearable
+          label="Address"
+          type="text"
+        ></v-text-field>
+      </v-col>
+      <v-col class="text-left" cols="4">
+        <v-file-input
+          v-model="files"
+          label="Upload useful materials"
+          multiple
+          outlined
           clearable
           prepend-icon="mdi-paperclip"
-         >
+        >
           <template v-slot:selection="{ text }">
-            <v-chip
-              small
-              label
-              color="primary"
-             >{{ text }}
-            </v-chip>
-           </template>
+            <v-chip small label color="primary">{{ text }} </v-chip>
+          </template>
         </v-file-input>
-</v-col>
+      </v-col>
     </v-row>
 
     <v-row align="left" justify="center">
@@ -86,14 +71,14 @@
       <v-col class="text-left" cols="3">
         <AppDatePicker v-model="endDate" label="End Date" />
       </v-col>
-       <v-col class="text-left" cols="3">
+      <v-col class="text-left" cols="3">
         <AppTimePicker v-model="startTime" label="Start Time" />
       </v-col>
       <v-col class="text-left" cols="3">
-        <AppTimePicker v-model="endTime"  label="End Time" />
+        <AppTimePicker v-model="endTime" label="End Time" />
       </v-col>
     </v-row>
-    <v-row align="left" >
+    <v-row align="left">
       <v-col cols="12">
         <v-textarea
           outlined
@@ -106,15 +91,14 @@
     </v-row>
 
     <v-row>
-
       <v-col cols="8">
-         <v-btn elevation="2" outlined>
+        <v-btn elevation="2" outlined>
           <v-icon>
             mdi-account-plus-outline
           </v-icon>
           Add co-organizer
         </v-btn>
-         <v-btn elevation="2" outlined>
+        <v-btn elevation="2" outlined>
           <v-icon>
             mdi-share-variant-outline
           </v-icon>
@@ -122,7 +106,7 @@
         </v-btn>
       </v-col>
       <v-col class="text-right" cols="4">
-       <v-btn elevation="2" outlined>
+        <v-btn elevation="2" outlined>
           <v-icon>
             mdi-content-save-outline
           </v-icon>
@@ -135,33 +119,36 @@
 
 <script>
 export default {
+  head: {
+    title: "Create new event"
+  },
   data() {
     return {
       time: null,
-     files: [],
-     switch1: true,
-     breadcrumbs: [
+      files: [],
+      switch1: true,
+      breadcrumbs: [
         {
-          text: 'Dashboard',
+          text: "Dashboard",
           disabled: false,
-          href: 'breadcrumbs_dashboard',
+          href: "breadcrumbs_dashboard"
         },
         {
-          text: 'Link 1',
+          text: "Link 1",
           disabled: false,
-          href: 'breadcrumbs_link_1',
+          href: "breadcrumbs_link_1"
         },
         {
-          text: 'Link 2',
+          text: "Link 2",
           disabled: true,
-          href: 'breadcrumbs_link_2',
-        },
+          href: "breadcrumbs_link_2"
+        }
       ],
       title: "Create your Event",
       startDate: null,
       endDate: null,
-      startTime:null,
-      endTime:null
+      startTime: null,
+      endTime: null
     };
   },
   computed: {

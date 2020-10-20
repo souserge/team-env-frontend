@@ -1,10 +1,13 @@
 <template>
-  <div v-anime="{ translateX: [
-    { value: -250, duration:0, delay: 0 },
-    { value: 0, duration: 1000, delay: 500 }
-  ],
-  easing: 'easeInCubic'
-}">
+  <div
+    v-anime="{
+      translateX: [
+        { value: -250, duration: 0, delay: 0 },
+        { value: 0, duration: 1000, delay: 500 }
+      ],
+      easing: 'easeInCubic'
+    }"
+  >
     <v-row align="center" justify="center">
       <v-col class="text-center" cols="12">
         <h1 class="display-1 mb-4" v-text="title"></h1>
@@ -78,13 +81,13 @@
               Edit
             </v-btn>
           </template>
-           <template v-slot:[`item.done`]="{item}">
-              <v-icon v-if="item.done">
-                mdi-check-outline
-              </v-icon>
-               <v-icon v-else>
-                mdi-close-outline
-              </v-icon>
+          <template v-slot:[`item.done`]="{ item }">
+            <v-icon v-if="item.done">
+              mdi-check-outline
+            </v-icon>
+            <v-icon v-else>
+              mdi-close-outline
+            </v-icon>
           </template>
         </v-data-table>
       </v-col>
@@ -105,6 +108,10 @@
 
 <script>
 export default {
+  head: {
+    title: "Events"
+  },
+
   data() {
     return {
       headers: [

@@ -25,7 +25,7 @@
     </v-card-text>
 
     <v-card-actions>
-      <v-btn color="deep-purple lighten-2" text>
+      <v-btn color="deep-purple lighten-2" to="/app/matchmaking/contact-volunteer" text>
         Contact
       </v-btn>
     </v-card-actions>

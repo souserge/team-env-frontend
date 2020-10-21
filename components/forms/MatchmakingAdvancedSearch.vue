@@ -10,10 +10,10 @@
     </v-row>
     <v-row>
       <v-col class="d-flex" cols="12" md="6">
-        <v-select :items="workloaditems" label="Workload"></v-select>
+        <v-select outlined :items="workloaditems" label="Workload"></v-select>
       </v-col>
       <v-col class="d-flex" cols="12" md="6">
-        <v-select :items="items" label="Required skills" multiple></v-select>
+        <v-select outlined :items="items" label="Required skills" multiple></v-select>
       </v-col>
     </v-row>
   </v-form>

@@ -1,12 +1,6 @@
 <template>
   <div
-    v-anime="{
-      translateX: [
-        { value: -250, duration: 0, delay: 0 },
-        { value: 0, duration: 1000, delay: 500 }
-      ],
-      easing: 'easeInCubic'
-    }"
+
   >
     <v-row>
       <v-col class="text-center" cols="4">

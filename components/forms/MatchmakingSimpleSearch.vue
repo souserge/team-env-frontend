@@ -1,10 +1,10 @@
 <template>
   <v-row>
     <v-col cols="12" md="6">
-      <p class=" flex mb-0 text-center grey--text text--darken-2">
+      <p class=" flex mb-0 text-left grey--text text--darken-2">
         I need help:
       </p>
-      <v-row class="justify-center">
+      <v-row class="justify-left">
         <v-checkbox
           class="mr-4"
           v-model="checkbox1"
@@ -26,6 +26,7 @@
           :items="places"
           menu-props="auto"
           label="Where"
+          outlined
           hide-details
           prepend-icon="mdi-map"
           single-line

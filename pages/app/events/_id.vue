@@ -7,13 +7,7 @@
   </div>
   <div
     v-else
-    v-anime="{
-      translateX: [
-        { value: -250, duration: 0, delay: 0 },
-        { value: 0, duration: 1000, delay: 500 }
-      ],
-      easing: 'easeInCubic'
-    }"
+
   >
     <v-row align="center" justify="center">
       <v-col class="text-center" cols="12">
@@ -193,7 +187,7 @@
 
     <v-row align="center" justify="center">
       <v-col class="text-left" cols="4">
-        <v-btn elevation="2" outlined x-large>
+        <v-btn elevation="2" outlined x-large           to="/app/matchmaking/">
           <v-icon>
             mdi-human-greeting-proximity
           </v-icon>

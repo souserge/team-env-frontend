@@ -77,7 +77,7 @@
             </v-list-item-action>
             <v-list-item-content>
               <v-list-item-title>
-                {{ formatDate(event.date) }}
+                {{ formatDateTime(event.date, event.time) }}
               </v-list-item-title>
               <v-list-item-subtitle>
                 {{ event.name }}
@@ -175,15 +175,13 @@ export default {
   },
 
   methods: {
-    formatDate(date) {
+    formatDateTime(date, time) {
       const d = new Date(date);
       const mo = new Intl.DateTimeFormat("gb", { month: "short" }).format(d);
       const wd = new Intl.DateTimeFormat("gb", { weekday: "short" }).format(d);
       const da = d.getDate();
-      const ho = d.getHours();
-      const mi = ("0" + d.getMinutes()).slice(-2);
 
-      return `${wd}. ${mo}. ${da}, ${ho}:${mi}`;
+      return `${wd}. ${mo}. ${da}, ${time}`;
     },
 
     createTask(newTask) {

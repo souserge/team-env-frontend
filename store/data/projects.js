@@ -31,16 +31,68 @@ export default [
 
     events: [
       {
-        name: 'Org. meeting',
-        date: '2020-10-07 12:00:00'
+        id: 1,
+        name: 'Legal meeting',
+        date: '2020-10-24',
+        time: '18:00',
+        privacy: 'Private',
+        coorganizers: [
+          {
+            src:
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTEtD-9q9Lu2ueYBwGALDni9mUZDY2PC-otEw&usqp=CAU',
+            name: 'Francesco'
+          },
+          {
+            src:
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcZ66nh8KOULNtAGKMU0Q_j2M6mgSi5TZnMg&usqp=CAU',
+            name: 'Serge'
+          }
+        ],
+        edit: '',
+        done: false
+      },
+
+      {
+        id: 2,
+        name: 'Recycling Discussion',
+        date: '2020-10-02',
+        time: '16:00',
+        privacy: 'Public',
+        coorganizers: [
+          {
+            src:
+              'https://cineuropa.org/imgCache/2020/09/06/1599392796214_0620x0435_27x0x1001x702_1599392845653.jpg',
+            name: 'John'
+          },
+          {
+            src:
+              'https://womenrockproject.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-27-at-10.19.29-AM.png',
+            name: 'Paulina'
+          }
+        ],
+        edit: '',
+        done: true
       },
       {
-        name: 'Cleaning day',
-        date: '2020-10-10 10:00:00'
-      },
-      {
-        name: 'Reflection / media',
-        date: '2020-10-11 11:00:00'
+        id: 3,
+        name: 'Environmental Festival',
+        date: '2020-10-03',
+        time: '13:00',
+        privacy: 'Public',
+        coorganizers: [
+          {
+            src:
+              'https://cineuropa.org/imgCache/2020/09/06/1599392796214_0620x0435_27x0x1001x702_1599392845653.jpg',
+            name: 'John'
+          },
+          {
+            src:
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQj5c50-PiIoaYes9cwYkA6CNDDC21fUG7uEQ&usqp=CAU',
+            name: 'Ana'
+          }
+        ],
+        edit: '',
+        done: true
       }
     ],
 

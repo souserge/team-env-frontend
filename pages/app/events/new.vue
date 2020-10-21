@@ -18,7 +18,7 @@
     </v-row>
 
     <v-row align="left" justify="center">
-      <v-col class="text-left" cols="8">
+      <v-col class="text-left pl-11" cols="8">
         <v-text-field
           outlined
           clearable
@@ -27,7 +27,7 @@
         ></v-text-field>
       </v-col>
 
-      <v-col class="text-left" cols="4">
+      <v-col class="text-left pl-12" cols="4">
         <v-switch
           inset
           v-model="switch1"

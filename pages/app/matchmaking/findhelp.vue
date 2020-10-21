@@ -9,12 +9,6 @@
     <v-container fluid>
       <v-row align="center">
         <v-col class="d-flex" cols="12" md="4">
-          <v-select
-            :items="items"
-            label="Select project you need to help with"
-          ></v-select>
-        </v-col>
-        <v-col class="d-flex" cols="12" md="4">
           <Checkbox> </Checkbox>
         </v-col>
         <v-col class="d-flex justify-center" cols="12" md="4">
@@ -82,8 +76,7 @@ export default {
   data() {
     return {
       advancedSearchOpened: false,
-      volunteersOpened: false,
-      items: ["Legal meeting", "Recycling Discussion", "Environmental festival"]
+      volunteersOpened: false
     };
   },
 

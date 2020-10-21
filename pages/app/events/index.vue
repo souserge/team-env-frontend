@@ -55,10 +55,13 @@
           :items-per-page="5"
           class="elevation-1"
         >
-          <template v-slot:[`item.co_organizers`]="{ item }">
+          <template v-slot:[`item.date`]="{ item }">
+            {{ formatDate(item.date) }}
+          </template>
+          <template v-slot:[`item.coorganizers`]="{ item }">
             <v-btn
               class="mr-3"
-              v-for="(value, index) in item.co_organizers"
+              v-for="(value, index) in item.coorganizers"
               :key="index"
               elevation="2"
               outlined
@@ -73,8 +76,8 @@
               {{ value.name }}
             </v-btn>
           </template>
-          <template v-slot:[`item.edit`]="{}">
-            <v-btn elevation="2" outlined>
+          <template v-slot:[`item.edit`]="{ item }">
+            <v-btn :to="`/app/events/${item.id}`" elevation="2" outlined>
               <v-icon>
                 mdi-pencil
               </v-icon>
@@ -95,7 +98,7 @@
 
     <v-row>
       <v-col cols="3">
-        <v-btn  :to="{ name: 'app-events-new'}"  elevation="2" outlined>
+        <v-btn :to="{ name: 'app-events-new' }" elevation="2" outlined>
           <v-icon>
             mdi-plus
           </v-icon>
@@ -107,6 +110,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   head: {
     title: "Events"
@@ -117,78 +122,14 @@ export default {
       headers: [
         {
           text: "Event Name",
-
           value: "name"
         },
         { text: "Date", value: "date" },
         { text: "Time", value: "time" },
         { text: "Privacy", value: "privacy" },
-        { text: "Co-organizers", value: "co_organizers" },
+        { text: "Co-organizers", value: "coorganizers" },
         { text: "Edit", value: "edit" },
         { text: "Done?", value: "done" }
-      ],
-      events: [
-        {
-          name: "Legal meeting",
-          date: "24/10/2020",
-          time: "18:00",
-          privacy: "Private",
-          co_organizers: [
-            {
-              src:
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTEtD-9q9Lu2ueYBwGALDni9mUZDY2PC-otEw&usqp=CAU",
-              name: "Francesco"
-            },
-            {
-              src:
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcZ66nh8KOULNtAGKMU0Q_j2M6mgSi5TZnMg&usqp=CAU",
-              name: "Serge"
-            }
-          ],
-          edit: "",
-          done: false
-        },
-
-        {
-          name: "Recycling Discussion",
-          date: "3/10/2020",
-          time: "16:00",
-          privacy: "Public",
-          co_organizers: [
-            {
-              src:
-                "https://cineuropa.org/imgCache/2020/09/06/1599392796214_0620x0435_27x0x1001x702_1599392845653.jpg",
-              name: "John"
-            },
-            {
-              src:
-                "https://womenrockproject.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-27-at-10.19.29-AM.png",
-              name: "Paulina"
-            }
-          ],
-          edit: "",
-          done: true
-        },
-        {
-          name: "Environmental Festival",
-          date: "2/10/2020",
-          time: "13:00",
-          privacy: "Public",
-          co_organizers: [
-            {
-              src:
-                "https://cineuropa.org/imgCache/2020/09/06/1599392796214_0620x0435_27x0x1001x702_1599392845653.jpg",
-              name: "John"
-            },
-            {
-              src:
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQj5c50-PiIoaYes9cwYkA6CNDDC21fUG7uEQ&usqp=CAU",
-              name: "Ana"
-            }
-          ],
-          edit: "",
-          done: true
-        }
       ],
       select: "Public",
       items: ["Public", "Private"],
@@ -197,30 +138,21 @@ export default {
       endDate: null
     };
   },
-  computed: {
-    computedDateFormatted() {
-      return this.formatDate(this.date);
-    }
-  },
+  computed: {},
 
-  watch: {
-    date(val) {
-      this.dateFormatted = this.formatDate(this.date);
-      this.date2 = this.formatDate(this.date);
-    }
-  },
   methods: {
     formatDate(date) {
       if (!date) return null;
 
       const [year, month, day] = date.split("-");
       return `${day}/${month}/${year}`;
-    },
-    parseDate(date) {
-      if (!date) return null;
+    }
+  },
+  computed: {
+    ...mapState(["currentProject"]),
 
-      const [day, month, year] = date.split("/");
-      return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+    events() {
+      return this.currentProject.events;
     }
   }
 };

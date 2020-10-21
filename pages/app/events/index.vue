@@ -95,7 +95,7 @@
 
     <v-row>
       <v-col cols="3">
-        <v-btn elevation="2" outlined>
+        <v-btn  :to="{ name: 'app-events-new'}"  elevation="2" outlined>
           <v-icon>
             mdi-plus
           </v-icon>

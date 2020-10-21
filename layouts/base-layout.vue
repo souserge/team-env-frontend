@@ -8,19 +8,3 @@
     </v-footer>
   </v-app>
 </template>
-
-<style lang="scss">
-.app {
-  background-color: #f9f8ed;
-  /* background-color: white; */
-
-  .navbar,
-  .footer {
-    color: white;
-  }
-
-  .footer {
-    z-index: 6;
-  }
-}
-</style>

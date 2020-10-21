@@ -1,0 +1,13 @@
+.app {
+  background-color: #f9f8ed;
+  /* background-color: white; */
+
+  .navbar,
+  .footer {
+    color: white !important;
+  }
+
+  .footer {
+    z-index: 6;
+  }
+}

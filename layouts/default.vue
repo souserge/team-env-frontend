@@ -63,6 +63,8 @@
         label="Search"
         prepend-inner-icon="mdi-magnify"
         clearable
+        v-model="searchText"
+        @keydown.enter="performSearch"
       ></v-text-field>
       <v-spacer />
       <v-toolbar-items flat>
@@ -101,6 +103,7 @@ export default {
 
   data() {
     return {
+      searchText: "",
       chooseProjectPopupOpened: false,
       drawer: true,
       items: [
@@ -170,6 +173,20 @@ export default {
   methods: {
     selectProject(projId) {
       this.$store.commit("setCurrentProject", projId);
+    },
+
+    clearLocalStorage() {
+      if (window) {
+        window.localStorage.clear();
+        window.location.reload();
+      }
+    },
+
+    performSearch() {
+      if (this.searchText === "clear store") {
+        this.clearLocalStorage();
+      }
+      this.searchText = "";
     }
   }
 };

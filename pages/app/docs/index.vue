@@ -10,7 +10,9 @@
 export default {
   head: {
     title: "Docs"
-  }
+  },
+
+  middleware: "projectChosen"
 };
 </script>
 

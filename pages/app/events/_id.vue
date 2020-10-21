@@ -196,6 +196,8 @@ export default {
     title: "Event info"
   },
 
+  middleware: "projectChosen",
+
   data() {
     return {
       select: "Public",

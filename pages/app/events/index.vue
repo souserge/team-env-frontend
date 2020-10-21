@@ -117,6 +117,8 @@ export default {
     title: "Events"
   },
 
+  middleware: "projectChosen",
+
   data() {
     return {
       headers: [

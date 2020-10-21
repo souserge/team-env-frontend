@@ -69,12 +69,6 @@ export default {
     selectProject(projId) {
       this.dialog = false;
       this.$emit("select", projId);
-    },
-
-    clearLocalStorage() {
-      if (window) {
-        window.localStorage.clear();
-      }
     }
   }
 };

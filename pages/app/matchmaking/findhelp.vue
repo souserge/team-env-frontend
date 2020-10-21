@@ -73,6 +73,8 @@ export default {
     title: "Find help"
   },
 
+  middleware: "projectChosen",
+
   data() {
     return {
       advancedSearchOpened: false,

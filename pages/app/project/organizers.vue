@@ -11,7 +11,9 @@
 export default {
   head: {
     title: "Manage organizers"
-  }
+  },
+
+  middleware: "projectChosen"
 };
 </script>
 

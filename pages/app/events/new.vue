@@ -122,6 +122,9 @@ export default {
   head: {
     title: "Create new event"
   },
+
+  middleware: "projectChosen",
+
   data() {
     return {
       time: null,

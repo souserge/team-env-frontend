@@ -29,7 +29,7 @@
         </v-list>
       </v-card-text>
 
-      <v-divider></v-divider>
+      <v-divider @click="clearLocalStorage"></v-divider>
 
       <v-card-actions>
         <v-btn
@@ -69,6 +69,12 @@ export default {
     selectProject(projId) {
       this.dialog = false;
       this.$emit("select", projId);
+    },
+
+    clearLocalStorage() {
+      if (window) {
+        window.localStorage.clear();
+      }
     }
   }
 };

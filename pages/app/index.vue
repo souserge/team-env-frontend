@@ -59,7 +59,12 @@
         </v-col>
       </v-row>
       <h3>Organization steps</h3>
-      todo
+      <app-todo
+        :tasks="currentProject.organizationTodo"
+        @createTask="createTask"
+        @toggleTask="toggleTask"
+        @deleteTask="deleteTask"
+      />
     </v-col>
 
     <v-col cols="12" md="4" class="mt-8">
@@ -179,6 +184,18 @@ export default {
       const mi = ("0" + d.getMinutes()).slice(-2);
 
       return `${wd}. ${mo}. ${da}, ${ho}:${mi}`;
+    },
+
+    createTask(newTask) {
+      this.$store.commit("addTodoTaskInCurrentProject", newTask);
+    },
+
+    toggleTask(task) {
+      this.$store.commit("toggleTodoTaskInCurrentProject", task.id);
+    },
+
+    deleteTask(task) {
+      this.$store.commit("deleteTodoTaskInCurrentProject", task.id);
     }
   }
 };

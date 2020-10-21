@@ -55,6 +55,39 @@ export default [
         author: 'Antonio Jobim',
         created: '2d ago'
       }
+    ],
+
+    organizationTodo: [
+      {
+        id: '492e7c19-76c0-406d-a73f-8fa7520288e7',
+        created: 123231312,
+        done: true,
+        text: 'Set up Facebook page'
+      },
+      {
+        id: '179b4a32-fdb0-4caf-8c36-86381d4801b8',
+        created: 123231312,
+        done: true,
+        text: 'Set up Instagram page'
+      },
+      {
+        id: 'ffbaa43c-bdd7-4c16-b302-954e6d4e5a4c',
+        created: 123231312,
+        done: true,
+        text: 'Set up events'
+      },
+      {
+        id: '08553545-da7d-4f57-a670-cb0394c7bab7',
+        created: 123231312,
+        done: false,
+        text: 'Find photographers'
+      },
+      {
+        id: '323b5045-e75b-4c19-a52e-15d1c10ce926',
+        created: 123231312,
+        done: false,
+        text: 'Request approval from municipality'
+      }
     ]
   }
 ]

@@ -1,26 +1,51 @@
 import projects from './data/projects'
+import { v4 as uuidv4 } from 'uuid'
 
 export const state = () => ({
-  currentProjectId: null,
+  currentProject: null,
   projects
 })
 
+function findProject (projects, projectId) {
+  return projectId ? projects.find(proj => proj.id == projectId) : null
+}
+
 export const getters = {
-  currentProject: state =>
-    state.currentProjectId
-      ? state.projects.find(proj => proj.id == state.currentProjectId)
-      : null,
+  currentProject: state => state.currentProject,
 
   projectsInfo: state =>
     state.projects.map(proj => ({ name: proj.name, id: proj.id })),
 
   projectSelected: state =>
-    state.currentProjectId !== null && state.currentProjectId !== undefined
+    state.currentProject !== null && state.currentProject !== undefined
 }
 
 export const mutations = {
   setCurrentProject (state, projectId) {
-    state.currentProjectId = projectId
+    state.currentProject = findProject(state.projects, projectId)
+  },
+
+  addTodoTaskInCurrentProject (state, newTask) {
+    const task = {
+      ...newTask,
+      created: Date.now(),
+      id: uuidv4()
+    }
+    state.currentProject.organizationTodo.push(task)
+  },
+
+  toggleTodoTaskInCurrentProject (state, taskId) {
+    const task = state.currentProject.organizationTodo.find(
+      t => t.id === taskId
+    )
+    task.done = !task.done
+  },
+
+  deleteTodoTaskInCurrentProject (state, taskId) {
+    const taskIndex = state.currentProject.organizationTodo.findIndex(
+      t => t.id === taskId
+    )
+    state.currentProject.organizationTodo.splice(taskIndex, 1)
   }
 }
 

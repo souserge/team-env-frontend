@@ -7,7 +7,7 @@
       <v-img
         max-height="250"
         max-width="350"
-        :src="require('~/assets/images/matchmaking.png')"
+        src="/media/images/matchmaking.png"
         @error="debugError"
       ></v-img>
     </v-row>

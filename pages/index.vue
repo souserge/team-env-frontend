@@ -1,9 +1,6 @@
 <template>
   <div>
-    <v-parallax
-      :src="require('~/assets/images/landing-bg.jpg')"
-      class="landing-image"
-    >
+    <v-parallax src="/media/images/landing-bg.jpg" class="landing-image">
       <v-row align="center" justify="center">
         <v-col class="text-center" cols="12">
           <h1 class="display-1 mb-4">

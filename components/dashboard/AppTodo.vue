@@ -15,18 +15,7 @@
       </template>
     </v-text-field>
 
-    <h2 class="pl-4">
-      Tasks:&nbsp;
-      <v-fade-transition leave-absolute>
-        <span :key="`tasks-${tasks.length}`">
-          {{ tasks.length }}
-        </span>
-      </v-fade-transition>
-    </h2>
-
-    <v-divider class="mt-4"></v-divider>
-
-    <v-row class="my-1" align="center">
+    <v-row class="mb-1" align="center">
       <strong class="mx-4 grey--text text--darken-1">
         Remaining: {{ remainingTasks }}
       </strong>

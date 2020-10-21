@@ -5,7 +5,7 @@
 
       <v-img class="mb-4" :src="currentProject.bannerImg" />
 
-      <p class="mb-6">
+      <p class="mb-8">
         We meet every week on Saturday in Parc Nord Les Ulis and clean the trash
         that we find there. We think our cause is very important to keep the
         place clean and welcoming for the animals that live there. We also
@@ -48,7 +48,7 @@
       </v-list>
     </v-col>
 
-    <v-col cols="12" md="4" class="mt-8">
+    <v-col cols="12" md="4" class="mt-10">
       <h3>Social media</h3>
       <v-row>
         <v-col cols="12" lg="6">
@@ -58,7 +58,7 @@
           <app-social-stats type="instagram" />
         </v-col>
       </v-row>
-      <h3>Organization steps</h3>
+      <h3 class="mt-12">Organization steps</h3>
       <app-todo
         :tasks="currentProject.organizationTodo"
         @createTask="createTask"
@@ -67,8 +67,8 @@
       />
     </v-col>
 
-    <v-col cols="12" md="4" class="mt-8">
-      <h3>Upcoming events</h3>
+    <v-col cols="12" md="4" class="mt-10">
+      <h3 class="mb-3">Upcoming events</h3>
       <v-list>
         <template v-for="(event, index) in upcomingEvents">
           <v-list-item :key="event.name + event.date" two-line>
@@ -99,7 +99,7 @@
         </v-list-item>
       </v-list>
 
-      <h3 class="mt-8">Similar projects</h3>
+      <h3 class="mt-12 mb-3">Similar projects</h3>
       <v-list>
         <template v-for="(project, index) in similarProjects">
           <v-list-item :key="project.name + project.author" two-line>

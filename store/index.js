@@ -1,9 +1,11 @@
 import projects from './data/projects'
+import volunteers from './data/volunteers'
 import { v4 as uuidv4 } from 'uuid'
 
 export const state = () => ({
   currentProject: null,
-  projects
+  projects,
+  volunteers
 })
 
 function findProject (projects, projectId) {

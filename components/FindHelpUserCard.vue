@@ -25,7 +25,11 @@
     </v-card-text>
 
     <v-card-actions>
-      <v-btn color="deep-purple lighten-2" to="/app/matchmaking/contact-volunteer" text>
+      <v-btn
+        color="deep-purple lighten-2"
+        :to="`/app/matchmaking/contact/${username}`"
+        text
+      >
         Contact
       </v-btn>
     </v-card-actions>
@@ -35,6 +39,9 @@
 <script>
 export default {
   props: {
+    username: {
+      type: String
+    },
     name: {
       type: String
     },

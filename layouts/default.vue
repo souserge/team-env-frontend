@@ -88,7 +88,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import BaseLayout from "~/layouts/base.vue";
+import BaseLayout from "~/layouts/base-layout.vue";
 
 export default {
   components: {

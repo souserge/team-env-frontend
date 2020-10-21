@@ -8,7 +8,6 @@
         max-height="250"
         max-width="350"
         src="/media/images/matchmaking.png"
-        @error="debugError"
       ></v-img>
     </v-row>
 
@@ -33,11 +32,7 @@ export default {
     title: "Matchmaking"
   },
 
-  methods: {
-    debugError(error) {
-      console.log(error);
-    }
-  }
+  methods: {}
 };
 </script>
 

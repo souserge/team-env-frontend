@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import BaseLayout from "~/layouts/base.vue";
+import BaseLayout from "~/layouts/base-layout.vue";
 
 export default {
   components: {

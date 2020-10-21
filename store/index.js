@@ -59,7 +59,7 @@ export const mutations = {
       ...newEvent,
       id: findLargestId(state.currentProject.events) + 1
     }
-    state.currentProject.events.push(newEvent)
+    state.currentProject.events.push(event)
   }
 }
 

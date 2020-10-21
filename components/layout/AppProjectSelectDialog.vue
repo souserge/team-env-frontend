@@ -29,7 +29,7 @@
         </v-list>
       </v-card-text>
 
-      <v-divider @click="clearLocalStorage"></v-divider>
+      <v-divider></v-divider>
 
       <v-card-actions>
         <v-btn

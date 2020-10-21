@@ -7,25 +7,26 @@ export default [
 
     coorganizers: [
       {
-        avatar:
+        imageurl:
           'https://womenrockproject.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-27-at-10.19.29-AM.png',
-        title: 'Paulina',
-        subtitle: 'Manages resources and crowdfunding, graphic designer',
-        admin: true
+        name: 'Paulina',
+        shortDescription:
+          'Manages resources and crowdfunding, graphic designer',
+        isAdmin: true
       },
       {
-        avatar:
+        imageurl:
           'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTEtD-9q9Lu2ueYBwGALDni9mUZDY2PC-otEw&usqp=CAU',
-        title: 'Francesco',
-        subtitle: 'Manages social media, photographer',
-        admin: true
+        name: 'Francesco',
+        shortDescription: 'Manages social media, photographer',
+        isAdmin: true
       },
       {
-        avatar:
+        imageurl:
           'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcZ66nh8KOULNtAGKMU0Q_j2M6mgSi5TZnMg&usqp=CAU',
-        title: 'Serge',
-        subtitle: 'Volunteer',
-        admin: false
+        name: 'Serge',
+        shortDescription: 'Volunteer',
+        isAdmin: false
       }
     ],
 
@@ -34,18 +35,22 @@ export default [
         id: 1,
         name: 'Legal meeting',
         date: '2020-10-24',
+        address: 'Zoozoom',
+        description: "We'll discuss the cooperation with the local authorities",
         time: '18:00',
-        privacy: 'Private',
+        isPublic: false,
         coorganizers: [
           {
-            src:
+            imageurl:
               'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTEtD-9q9Lu2ueYBwGALDni9mUZDY2PC-otEw&usqp=CAU',
-            name: 'Francesco'
+            name: 'Francesco',
+            shortDescription: 'Manages social media, photographer'
           },
           {
-            src:
+            imageurl:
               'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRcZ66nh8KOULNtAGKMU0Q_j2M6mgSi5TZnMg&usqp=CAU',
-            name: 'Serge'
+            name: 'Serge',
+            shortDescription: 'Volunteer'
           }
         ],
         edit: '',
@@ -55,19 +60,24 @@ export default [
       {
         id: 2,
         name: 'Recycling Discussion',
+        address: 'Zoooom :)',
+        description:
+          "We are going to discuss the best strategy to deal with the waste we collect during our events. It's a zoom call due to corona restrictions (wait for the email with the invite link).",
         date: '2020-10-02',
         time: '16:00',
-        privacy: 'Public',
+        isPublic: true,
         coorganizers: [
           {
-            src:
+            imageurl:
               'https://cineuropa.org/imgCache/2020/09/06/1599392796214_0620x0435_27x0x1001x702_1599392845653.jpg',
-            name: 'John'
+            name: 'John',
+            shortDescription: 'Activist, lawyer'
           },
           {
-            src:
+            imageurl:
               'https://womenrockproject.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-27-at-10.19.29-AM.png',
-            name: 'Paulina'
+            name: 'Paulina',
+            shortDescription: 'The boss 😎'
           }
         ],
         edit: '',
@@ -76,19 +86,24 @@ export default [
       {
         id: 3,
         name: 'Environmental Festival',
+        address: '1 Avenue de Normandie, 91940 Les Ulis, France',
+        description:
+          "Why is it called like that? Anyway, it's cleaning time! Please wear masks and keep a sufficient distance from others.",
         date: '2020-10-03',
         time: '13:00',
-        privacy: 'Public',
+        isPublic: true,
         coorganizers: [
           {
-            src:
+            imageurl:
               'https://cineuropa.org/imgCache/2020/09/06/1599392796214_0620x0435_27x0x1001x702_1599392845653.jpg',
-            name: 'John'
+            name: 'John',
+            shortDescription: 'Activist, lawyer'
           },
           {
-            src:
+            imageurl:
               'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQj5c50-PiIoaYes9cwYkA6CNDDC21fUG7uEQ&usqp=CAU',
-            name: 'Ana'
+            name: 'Anne',
+            shortDescription: '...with an E'
           }
         ],
         edit: '',

@@ -17,7 +17,7 @@
   >
     <v-row align="center" justify="center">
       <v-col class="text-center" cols="12">
-        <h1 class="display-1 mb-4" v-text="title"></h1>
+        <h1 class="display-1 mb-4" v-text="event.name"></h1>
       </v-col>
     </v-row>
 
@@ -39,7 +39,16 @@
           <v-divider></v-divider>
 
           <v-card-text>
-            Ciao
+            <p>
+              <strong>When? </strong> on {{ event.date }}, at {{ event.time }}
+            </p>
+            <p><strong>Where?</strong> {{ event.address }}</p>
+            <p>
+              {{ event.description }}
+            </p>
+            <p>
+              It is a {{ event.isPublic ? "publicly" : "privately" }} held event
+            </p>
           </v-card-text>
         </div>
       </v-expand-transition>
@@ -65,12 +74,34 @@
         </v-btn>
       </v-col>
       <v-expand-transition>
-        <div v-show="showCoOrganize">
+        <div style="width: 100%;" v-show="showCoOrganize">
           <v-divider></v-divider>
+          <v-row>
+            <v-col cols="12">
+              <v-list>
+                <template v-for="(item, index) in event.coorganizers">
+                  <v-list-item two-line :key="item.title">
+                    <v-list-item-avatar>
+                      <v-img :src="item.imageurl"></v-img>
+                    </v-list-item-avatar>
 
-          <v-card-text>
-            Ciaoo
-          </v-card-text>
+                    <v-list-item-content>
+                      <v-list-item-title>{{ item.name }} </v-list-item-title>
+                      <v-list-item-subtitle>
+                        {{ item.shortDescription }}
+                      </v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+
+                  <v-divider
+                    v-if="index < event.coorganizers.length - 1"
+                    :key="index"
+                    :inset="true"
+                  ></v-divider>
+                </template>
+              </v-list>
+            </v-col>
+          </v-row>
         </div>
       </v-expand-transition>
     </v-row>
@@ -200,9 +231,6 @@ export default {
 
   data() {
     return {
-      select: "Public",
-      items: ["Public", "Private"],
-      title: "Clean day",
       startDate: null,
       endDate: null,
       show: false,
@@ -217,7 +245,7 @@ export default {
     ...mapState(["currentProject"]),
 
     eventId() {
-      return this.$route.params.id;
+      return parseInt(this.$route.params.id);
     },
 
     event() {

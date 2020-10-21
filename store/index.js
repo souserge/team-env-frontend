@@ -8,6 +8,10 @@ export const state = () => ({
   volunteers
 })
 
+function findLargestId (events) {
+  return events.reduce((prev, curr) => (prev.id > curr.id ? prev : curr)).id
+}
+
 function findProject (projects, projectId) {
   return projectId ? projects.find(proj => proj.id == projectId) : null
 }
@@ -48,6 +52,14 @@ export const mutations = {
       t => t.id === taskId
     )
     state.currentProject.organizationTodo.splice(taskIndex, 1)
+  },
+
+  addEventToCurrentProject (state, newEvent) {
+    const event = {
+      ...newEvent,
+      id: findLargestId(state.currentProject.events) + 1
+    }
+    state.currentProject.events.push(newEvent)
   }
 }
 

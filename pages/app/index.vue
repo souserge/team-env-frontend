@@ -18,18 +18,18 @@
         <template v-for="(item, index) in currentProject.coorganizers">
           <v-list-item two-line :key="item.title">
             <v-list-item-avatar>
-              <v-img :src="item.avatar"></v-img>
+              <v-img :src="item.imageurl"></v-img>
             </v-list-item-avatar>
 
             <v-list-item-content>
               <v-list-item-title
-                >{{ item.title }}
+                >{{ item.name }}
                 <v-icon v-if="item.admin" class="pb-1" x-small
                   >mdi-star</v-icon
                 ></v-list-item-title
               >
               <v-list-item-subtitle>
-                {{ item.subtitle }}
+                {{ item.shortDescription }}
               </v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>

@@ -11,8 +11,8 @@
     <template v-slot:activator="{ on, attrs }">
       <v-text-field
         v-model="dateFormatted"
+        readonly
         :label="label"
-        @blur="handleBlur"
         prepend-icon="mdi-calendar"
         v-bind="attrs"
         outlined

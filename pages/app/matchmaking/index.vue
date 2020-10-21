@@ -12,12 +12,12 @@
     </v-row>
 
     <v-row justify="center">
-      <v-col align="right" cols="6">
+      <v-col align="right" cols="6" v-if="projectSelected">
         <v-btn color="primary" to="/app/matchmaking/findhelp" x-large>
           Find help
         </v-btn>
       </v-col>
-      <v-col align="left" cols="6">
+      <v-col :align="projectSelected ? 'left' : 'center'" cols="6">
         <v-btn color="primary" to="/app/matchmaking/givehelp" x-large>
           Give help
         </v-btn>
@@ -27,9 +27,14 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   head: {
     title: "Matchmaking"
+  },
+
+  computed: {
+    ...mapGetters(["projectSelected"])
   },
 
   methods: {}

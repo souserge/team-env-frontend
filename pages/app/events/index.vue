@@ -14,7 +14,7 @@
       </v-col>
     </v-row>
 
-    <v-row align="left" justify="center">
+    <v-row align="start" justify="center">
       <v-col class="text-left" cols="3">
         <AppDatePicker v-model="startDate" label="Start Date" />
       </v-col>
@@ -58,6 +58,9 @@
           <template v-slot:[`item.date`]="{ item }">
             {{ formatDate(item.date) }}
           </template>
+          <template v-slot:[`item.privacy`]="{ item }">
+            {{ item.isPublic ? "Public" : "Private" }}
+          </template>
           <template v-slot:[`item.coorganizers`]="{ item }">
             <v-btn
               class="mr-3"
@@ -70,7 +73,7 @@
                 id="rounded-card"
                 height="30"
                 width="30"
-                :src="value.src"
+                :src="value.imageurl"
               ></v-img>
 
               {{ value.name }}

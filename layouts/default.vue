@@ -183,7 +183,7 @@ export default {
     },
 
     performSearch() {
-      if (this.searchText === "clear store") {
+      if (this.searchText === "clear") {
         this.clearLocalStorage();
       }
       this.searchText = "";

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mx-md-12">
     <v-row align="center" justify="center">
       <h2 class="mb-4">
         Find volunteers to help you with your activism!
@@ -7,30 +7,22 @@
     </v-row>
 
     <v-container fluid>
-      <v-row align="center">
-        <v-col class="d-flex" cols="12" md="4">
-          <Checkbox> </Checkbox>
-        </v-col>
-        <v-col class="d-flex justify-center" cols="12" md="4">
-          <v-btn
-            color="primary"
-            to="/app/matchmaking/findhelp"
-            x-medium
-            @click="showVolunteers"
-          >
-            Search
-          </v-btn>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-btn color="primary" x-medium @click="openAdvancedSearch">
-          Advanced search
-        </v-btn>
-      </v-row>
+      <MatchmakingSimpleSearch />
     </v-container>
     <v-container fluid id="adv">
-      <MatchmakingAdvancedSearch v-show="advancedSearchOpened">
-      </MatchmakingAdvancedSearch>
+      <MatchmakingAdvancedSearch />
+      <v-spacer />
+
+      <v-row justify="end" cols="12">
+        <v-btn
+          color="primary"
+          to="/app/matchmaking/findhelp"
+          x-medium
+          @click="showVolunteers"
+        >
+          Search
+        </v-btn>
+      </v-row>
     </v-container>
     <v-container
       v-show="volunteersOpened"
@@ -40,6 +32,9 @@
     >
       <v-fade-transition mode="out-in">
         <v-row>
+          <v-col cols="12">
+            <h2 class="text-center">Search results</h2>
+          </v-col>
           <v-col
             class="d-flex flex-column"
             cols="12"
